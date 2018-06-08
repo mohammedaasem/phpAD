@@ -1,0 +1,16 @@
+SELECT lati, longi, SQRT(
+    POW(69.1 * (lati - 18.632434), 2) +
+    POW(69.1 * (73.763535 - longi) * COS(lati / 57.3), 2)) AS distance
+FROM cmplaint HAVING distance < 25 ORDER BY distance;
+
+
+
+Fully working query tested on smartcity dataset
+
+
+
+To delete from mysql records with old time interval of threshold value
+
+DELETE FROM `realtime_notification` WHERE `current_time` < ADDDATE(NOW(), INTERVAL -3 MINUTE_SECOND)
+
+DELETE FROM `realtime_notification` WHERE `current_time` < ADDDATE(NOW(), INTERVAL -7 HOUR_MINUTE)
